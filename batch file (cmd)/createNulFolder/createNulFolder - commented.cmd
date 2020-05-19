@@ -54,5 +54,5 @@ whoami /groups |find " S-1-16-12288 " >nul 2>&1 && exit /b 0       <::> if admin
 echo.To create a symbolic link, admin privilege is required.
 echo.Requesting administrative privilege...
 powershell Start-Process "%~s0" -Verb runAs       <::> attempts to execute self with elevated privilege
-if %ErrorLevel% neq 0 echo.User denied the request. && pause && exit /b 1
-exit /b 0
+if %ErrorLevel% neq 0 echo.User denied the request. && pause && exit /b 1       <::> if elevation is denied, exit with 1
+exit /b 2       <::> if elevation is approved, exit with 2

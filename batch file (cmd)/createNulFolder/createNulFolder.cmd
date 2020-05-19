@@ -53,4 +53,4 @@ echo.To create a symbolic link, admin privilege is required.
 echo.Requesting administrative privilege...
 powershell Start-Process "%~s0" -Verb runAs
 if %ErrorLevel% neq 0 echo.User denied the request. && pause && exit /b 1
-exit /b 0
+exit /b 2
