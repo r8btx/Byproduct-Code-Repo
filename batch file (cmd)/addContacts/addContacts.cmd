@@ -29,7 +29,7 @@ if /i "%confirm:"=%" neq "confirm" goto :ask
 rem Create helper VBS
 set regAddress=HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
 set f="%temp%\vbsHelper%random%.vbs"
-echo.set WSHShell ^= CreateObject("WScript.Shell") >"%f%"
+echo.set WSHShell = CreateObject("WScript.Shell") >"%f%"
 echo.WSHShell.RegWrite "%regAddress%\legalnoticecaption", "Contact Information", "REG_SZ" >>"%f%"
 echo.WSHShell.RegWrite "%regAddress%\legalnoticetext", ""^&vbLf^&"%s1:"=%"^&vbLf^&"%s2:"=%", "REG_SZ" >>"%f%"
 
