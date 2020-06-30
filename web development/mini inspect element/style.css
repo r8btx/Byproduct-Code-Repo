@@ -1,0 +1,69 @@
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+    line-height: 1.5;
+    background-color: silver;
+	color: #222;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+#container {
+    background-color: lightblue;
+    border: 1px solid dodgerblue;
+    width: 500px;
+    height: 300px;
+    padding: 30px;
+    text-align: center;
+}
+
+/* Creates layer  */
+#inspect-overlay {
+    display: none;
+    position: fixed;
+    background-color: moccasin;
+    border: 1px solid orange;
+    opacity: .4;
+    pointer-events: none;
+}
+
+
+/* Follows mouse */
+#inspect {
+    display: none;
+    position: fixed;
+    padding: 0.5%;
+    background-color: #040404;
+    outline: 2px solid #8cff99;
+    color: #8cff99;
+    letter-spacing: .05em;
+    z-index: 999;
+}
+
+
+/* Below from https://stackoverflow.com/questions/826782 for disabling select*/
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Safari */
+    -khtml-user-select: none;    /* Konqueror HTML */
+    -moz-user-select: none;      /* Old versions of Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;           /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
