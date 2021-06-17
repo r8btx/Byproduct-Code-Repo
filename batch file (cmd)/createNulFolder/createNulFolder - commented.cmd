@@ -28,7 +28,7 @@ attrib +h +s "\\.\%~dp0nul"
 
 
 
-echo.End of File.
+echo/End of File.
 pause
 exit /b       <::> /b argument will exit the script instead of cmd process
 
@@ -36,7 +36,7 @@ exit /b       <::> /b argument will exit the script instead of cmd process
 
 :deleteNul
 rd Link2nul >nul 2>&1       <::> >nul 2>&1 suppresses all resulting messages
-rd /s /q "\\.\%~dp0nul" && echo.Removal complete. && pause && exit /b 0       <::> if successful, exit with 0
+rd /s /q "\\.\%~dp0nul" && echo/Removal complete. && pause && exit /b 0       <::> if successful, exit with 0
 exit /b 1       <::> if unsuccessful, exit with 1
 
 :createSymLink
@@ -46,13 +46,13 @@ mklink /d "Link2nul" "\\.\%~dp0nul" && pause && exit /b 0       <::> creates sym
 exit /b 1
 
 :writeIni
-echo.%~1>>"\\.\%~dp0nul\desktop.ini"       <::> %~i removes surrounding quotes from the argument i
+echo/%~1>>"\\.\%~dp0nul\desktop.ini"       <::> %~i removes surrounding quotes from the argument i
 exit /b
 
 :elevate
 whoami /groups |find " S-1-16-12288 " >nul 2>&1 && exit /b 0       <::> if admin privilege is detected, exit with 0
-echo.To create a symbolic link, admin privilege is required.
-echo.Requesting administrative privilege...
+echo/To create a symbolic link, admin privilege is required.
+echo/Requesting administrative privilege...
 powershell Start-Process "%~s0" -Verb runAs       <::> attempts to execute self with elevated privilege
-if %ErrorLevel% neq 0 echo.User denied the request. && pause && exit /b 1       <::> if elevation is denied, exit with 1
+if %ErrorLevel% neq 0 echo/User denied the request. && pause && exit /b 1       <::> if elevation is denied, exit with 1
 exit /b 2       <::> if elevation is approved, exit with 2
