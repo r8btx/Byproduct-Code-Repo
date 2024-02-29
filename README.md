@@ -1,2 +1,2 @@
-# Code-Exercise
-A repository dedicated to exercising codes
+# Byproduct Code Repo
+A repository of byproduct codes
